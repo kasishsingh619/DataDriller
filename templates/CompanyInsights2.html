@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="static/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/assets/libs/css/style.css">
+    <link rel="stylesheet" href="static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="static/assets/vendor/charts/c3charts/c3.css">
+    <title>Data Insights</title>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!--Tweets Scrolling Purpose-->
+    <style>
+    #twitter-widget-holder{ max-height:400px; max-width:500px; padding:20px; background:#fff; border-radius:3px; box-shadow:2px 2px 3px rgba(0,0,0,.1); }
+    </style>
+    <!-- custom scrollbar CSS -->
+<link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+<!-- jQuery lib -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- custom scrollbar plugin script -->
+<script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    (function($){
+      $(window).load(function(){
+        /* initialize scrollbar */
+        $("#twitter-widget-holder").mCustomScrollbar({
+          theme:"dark-3",
+          scrollButtons:{enable:true}
+        });
+        /* insert twitter widget js in window load fn */
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+      });
+    })(jQuery);
+  </script>
+
+
+
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/">Data Driller</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                        
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/">Main Insights Summary</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+                        
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Insights</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/CompanyInsights">Company Insights</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/SocialMediaInsights">Social Media Insights</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-square-full"></i>Notes</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="TwilioForm">Twilio Notes</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa-fw fa-chart-pie"></i>Filter Data</a>
+                                <div id="submenu-4" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/FilterTweets">Filter Tweets</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+ 
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Company Data Insights</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Company Inferences</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Company Data Insights</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Insights</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+
+            </div>
+            <center>
+            <div class="container-contact100" style="
+              border-radius: 25px;
+              border: 2px solid #071d67;
+              padding: 20px; 
+              width: 500px;
+              height: 200px; ">
+            <div class="container-contact100">
+                <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+              
+                <div class="wrap-contact100">
+    
+                    <span class="contact100-form-title">
+                      Upload your data to generate data driven insights
+                    </span>
+              
+              
+                    <h2>Upload Data</h2><br>
+
+                      <br>
+              
+            
+                    <div class="container-contact100-form-btn">
+                      <button class="contact100-form-btn">
+                        <form action = "/success" method = "post" enctype="multipart/form-data">  
+                            <input type="file" name="file" />  
+                            <input type = "submit" value="Upload">  
+                        </form>  
+                      </button>
+                    </div>
+                  <br><br><br><br>
+              
+                </div>
+              </div>
+              
+        <!--Dataframe -->
+              <div id="dropDownSelect1"></div>
+            </div>
+            </center>
+            <center>
+                <p>File Name: {{name}}</p>  
+            </center>
+            <br><br>
+
+            <hr>
+
+            <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                    {% for table in tables %}                  
+                    <h3>Company Dataset:</h3>
+                        <div class="card-body">
+                            <div class="table table-striped" style="width: {{ table|length }}px">
+                                {{ table|safe }} 
+                            </div>
+        
+                    </div>
+                    {% endfor %}
+                    
+            </div>
+
+            <hr>
+            <!--Other Analytics-->
+
+            <div class="row">
+                <!-- ============================================================== -->
+                <!-- sales  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="card border-3 border-top border-top-primary">
+                        <div class="card-body">
+                            <h5 class="text-muted">Count of data points</h5>
+                            <div class="metric-value d-inline-block">
+                                <h1 class="mb-1">{{total_data_points}}</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end sales  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- new customer  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="card border-3 border-top border-top-primary">
+                        <div class="card-body">
+                            <h5 class="text-muted">Total features analysed</h5>
+                            <div class="metric-value d-inline-block">
+                                <h1 class="mb-1">{{total_features}}</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end new customer  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- visitor  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="card border-3 border-top border-top-primary">
+                        <div class="card-body">
+                            <h5 class="text-muted">Sentiment: Customer satisfaction</h5>
+                            <div class="metric-value d-inline-block">
+                                <h1 class="mb-1">{{percentage_retention}}</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end visitor  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- total orders  -->
+                <!-- ============================================================== -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="card border-3 border-top border-top-primary">
+                        <div class="card-body">
+                            <h5 class="text-muted">Gender Ratio(M:F)</h5>
+                            <div class="metric-value d-inline-block">
+                                <h1 class="mb-1">{{males_females}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end total orders  -->
+                <!-- ============================================================== -->
+            </div>
+            <div class="row">
+                <!-- ============================================================== -->
+                <!-- total revenue  -->
+                <!-- ============================================================== -->
+            
+            <br>
+            <br>
+
+            <div class="form-row text-center">
+                <div class="col-12" style="margin:auto">
+                    <div class="list-group" style="margin:auto">
+
+                        <a href="/companyInsightGraphs" class="list-group-item list-group-item-action active">
+                          Graphs
+                        </a>
+                      </div>
+                </div>
+             </div>
+            
+
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="static/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="static/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="static/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="static/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="static/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="static/assets/libs/js/main-js.js"></script>
+</body>
+ 
+</html>

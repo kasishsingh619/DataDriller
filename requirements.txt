@@ -1,0 +1,12 @@
+Flask
+matplotlib
+nltk
+numpy
+pandas
+plotly
+seaborn
+text2emotion
+twilio
+tweepy
+wordcloud
+emoji==1.7
